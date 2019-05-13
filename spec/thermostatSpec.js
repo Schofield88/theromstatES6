@@ -13,6 +13,10 @@ describe('Thermostat', () => {
       expect(stat.currentTemp()).toEqual(result);
     });
 
+    it('has a minimum temp of 10 degrees', () => {
+      expect(stat.minimum).toEqual(10);
+    });
+
   });
 
   context('Methods', () => {
