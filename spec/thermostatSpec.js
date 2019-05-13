@@ -3,7 +3,7 @@ describe('Thermostat', () => {
   let stat;
 
   beforeEach(() => {
-    stat = new Thermostat();
+    stat = Thermostat();
   });
 
   context('Initial state', () => {
@@ -14,7 +14,11 @@ describe('Thermostat', () => {
     });
 
     it('has a minimum temp of 10 degrees', () => {
-      expect(stat.minimum).toEqual(10);
+      expect(stat.reportMinimum()).toEqual(10);
+    });
+
+    it('has a max temperature of 25 when power saving is on', () => {
+      expect(stat.currentMaxTemp()).toEqual(25);
     });
 
   });

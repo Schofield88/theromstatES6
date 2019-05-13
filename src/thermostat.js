@@ -1,20 +1,34 @@
-class Thermostat {
-  constructor() {
-    this.temp = 20;
-    this.minimum = 10;
+function Thermostat() {
+  let temp = 20;
+  const minimum = 10;
+  let maxTemp = 25;
+
+  function currentTemp() {
+    console.log(`The current temperature is {this.temp}oC.`);
+    return `The current temperature is ${temp}oC.`;
   }
 
-  currentTemp() {
-    console.log(`The current temperature is ${this.temp}oC.`);
-    return `The current temperature is ${this.temp}oC.`;
-  };
+  function currentMaxTemp() {
+    return maxTemp;
+  }
 
-  up(value = 1) {
-    this.temp += value;
-  };
+  function up(value=1) {
+    temp += value;
+  }
 
-  down(value = 1) {
-    this.temp -= value;
-  };
+  function down(value=1) {
+    temp -= value;
+  }
 
+  function reportMinimum() {
+    return minimum;
+  }
+
+  return Object.freeze({
+    currentTemp,
+    up,
+    down,
+    reportMinimum,
+    currentMaxTemp
+  });
 }
