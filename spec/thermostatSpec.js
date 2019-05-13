@@ -24,6 +24,11 @@ describe('Thermostat', () => {
       expect(stat.currentTemp()).toEqual('The current temperature is 25oC.');
     });
 
+    it('decreases the temp by 1 degree', () => {
+      stat.down();
+      expect(stat.currentTemp()).toEqual('The current temperature is 19oC.');
+    });
+
   });
 
 });
