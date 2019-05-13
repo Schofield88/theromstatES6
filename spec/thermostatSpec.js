@@ -15,4 +15,15 @@ describe('Thermostat', () => {
 
   });
 
+  context('Methods', () => {
+
+    it('increase the temp by 1 and 4 degrees', () => {
+      stat.up();
+      expect(stat.currentTemp()).toEqual('The current temperature is 21oC.');
+      stat.up(4);
+      expect(stat.currentTemp()).toEqual('The current temperature is 25oC.');
+    });
+
+  });
+
 });

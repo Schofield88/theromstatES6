@@ -8,4 +8,8 @@ class Thermostat {
     return `The current temperature is ${this.temp}oC.`;
   };
 
+  up(value = 1) {
+    this.temp += value;
+  };
+
 }
