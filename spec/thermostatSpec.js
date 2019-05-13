@@ -6,7 +6,7 @@ describe('Thermostat', () => {
     stat = Thermostat();
   });
 
-  context('Initial state', () => {
+  context('All things state', () => {
 
     it('starts with a temp of 20 degrees', () => {
       let result = 'The current temperature is 20oC.';
@@ -56,6 +56,21 @@ describe('Thermostat', () => {
       stat.up(10);
       stat.reset();
       expect(stat.currentTemp()).toEqual('The current temperature is 20oC.');
+    });
+
+    it('will tell you what the current energy usage is - Low for 17', () => {
+      stat.down(3);
+      expect(stat.energyUsage()).toEqual('Low');
+    });
+
+    it('will tell you what the current energy usage is - Medium for 24', () => {
+      stat.up(4);
+      expect(stat.energyUsage()).toEqual('Medium');
+    });
+
+    it('will tell you what the current energy usage is - High for 30', () => {
+      stat.up(10);
+      expect(stat.energyUsage()).toEqual('High');
     });
 
   });

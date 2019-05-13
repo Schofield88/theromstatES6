@@ -51,6 +51,16 @@ function Thermostat() {
     temp = 20;
   }
 
+  function energyUsage() {
+    if (temp < 18) {
+      return 'Low';
+    } else if (temp >= 18 && temp < 25) {
+      return 'Medium';
+    } else {
+      return 'High';
+    }
+  }
+
   return Object.freeze({
     currentTemp,
     up,
@@ -60,6 +70,7 @@ function Thermostat() {
     saveOff,
     saveOn,
     isPowerSave,
-    reset
+    reset,
+    energyUsage,
   });
 }
